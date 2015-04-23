@@ -11,29 +11,36 @@
 
 @interface ViewController ()
 
+@property (strong) AVAudioPlayer *player;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidAppear:(BOOL)animated {
+    
     [super viewDidAppear:animated];
-   
-
-}
-
-- (IBAction)play:(id)sender {
     
     NSString *audioPath = [[NSBundle mainBundle] pathForResource: @"digital_bell_sms" ofType: @"mp3"];
     
     NSURL *soundFileURL = [NSURL fileURLWithPath:audioPath];
     
-    AVAudioPlayer *player = [[AVAudioPlayer alloc] initWithContentsOfURL: soundFileURL error: nil];
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL: soundFileURL error: nil];
     
-    player.numberOfLoops = -1;
+    self.player.numberOfLoops = -1;
     
-    [player play];
+    [self.player play];
+
+}
+
+- (IBAction)answerFakeCall:(id)sender {
+    
+    NSLog(@"button pressed");
+    
+    [self.player stop];
     
 }
+
 
 
 - (void)didReceiveMemoryWarning {
