@@ -6,16 +6,16 @@
 //  Copyright (c) 2015 Ebony Nyenya. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "IncomingViewController.h"
 
 
-@interface ViewController ()
+@interface IncomingViewController ()
 
 @property (strong) AVAudioPlayer *player;
 
 @end
 
-@implementation ViewController
+@implementation IncomingViewController
 
 - (void)viewDidAppear:(BOOL)animated {
     
@@ -38,6 +38,8 @@
     NSLog(@"button pressed");
     
     [self.player stop];
+    
+    [self performSegueWithIdentifier:@"toAnsweredView" sender:self];
     
 }
 

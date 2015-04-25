@@ -5,10 +5,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Incoming View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="IncomingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -17,41 +17,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="incoming.png" translatesAutoresizingMaskIntoConstraints="NO" id="PZI-yu-5mH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9jW-BT-ZTS">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="737-K4-YMC">
-                                <rect key="frame" x="325" y="427" width="149" height="138"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Won-ZZ-JKW">
-                                        <rect key="frame" x="20" y="20" width="109" height="98"/>
-                                        <state key="normal" title="Button">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="answerFakeCall:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ou9-35-Way"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                                <state key="normal" image="incoming.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="answerFakeCall:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cav-A9-79v"/>
+                                    <segue destination="q1N-vW-n3b" kind="showDetail" identifier="toAnsweredView" id="mYe-FW-SCN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PZI-yu-5mH" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="0Ps-c6-yZb"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="PZI-yu-5mH" secondAttribute="bottom" id="3Ya-Sk-iOX"/>
-                            <constraint firstItem="PZI-yu-5mH" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="V0i-Hh-2e9"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="PZI-yu-5mH" secondAttribute="trailing" constant="-16" id="v4k-cO-ibC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9jW-BT-ZTS" secondAttribute="bottom" id="CV3-UN-5pg"/>
+                            <constraint firstItem="9jW-BT-ZTS" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="b7h-6p-c0g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="9jW-BT-ZTS" secondAttribute="trailing" constant="-16" id="qKm-4P-scd"/>
+                            <constraint firstItem="9jW-BT-ZTS" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="xej-ll-1Jz"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Answered View Controller-->
         <scene sceneID="Llz-Ts-1Mp">
             <objects>
-                <viewController id="q1N-vW-n3b" sceneMemberID="viewController">
+                <viewController id="q1N-vW-n3b" customClass="AnsweredViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FXk-A5-2qH"/>
                         <viewControllerLayoutGuide type="bottom" id="4X3-15-dgb"/>
@@ -59,15 +51,27 @@
                     <view key="view" contentMode="scaleToFill" id="9Ul-Sn-dXL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="answered.png" translatesAutoresizingMaskIntoConstraints="NO" id="dWv-8H-RsQ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dWv-8H-RsQ" firstAttribute="leading" secondItem="9Ul-Sn-dXL" secondAttribute="leadingMargin" constant="-16" id="PSC-Xr-Q2H"/>
+                            <constraint firstItem="dWv-8H-RsQ" firstAttribute="top" secondItem="9Ul-Sn-dXL" secondAttribute="topMargin" id="PSZ-vw-Avl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dWv-8H-RsQ" secondAttribute="trailing" constant="-16" id="Ylp-dS-Kom"/>
+                            <constraint firstItem="4X3-15-dgb" firstAttribute="top" secondItem="dWv-8H-RsQ" secondAttribute="bottom" id="bfN-iW-r7I"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fMP-xO-stm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="929" y="334"/>
+            <point key="canvasLocation" x="1233" y="334"/>
         </scene>
     </scenes>
     <resources>
+        <image name="answered.png" width="640" height="1136"/>
         <image name="incoming.png" width="640" height="1136"/>
     </resources>
 </document>

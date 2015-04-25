@@ -11,7 +11,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 
-@interface ViewController : UIViewController
+@interface IncomingViewController : UIViewController
 
 
 @end
